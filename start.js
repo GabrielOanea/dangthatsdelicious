@@ -15,10 +15,13 @@ mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', (err) => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
+  //TODO: setup to die if no database connection
 });
 
 // READY?! Let's go!
 
+//import all of our models
+require('./models/Store');
 
 // Start our app!
 const app = require('./app');
